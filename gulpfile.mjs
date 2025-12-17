@@ -11,4 +11,4 @@ import './gulp/tasks/docs.mjs'
 const { task, parallel } = gulp
 
 // global tasks
-task('build', parallel('build:dist', 'build:docs'))
+task('build', parallel('build:dist'))

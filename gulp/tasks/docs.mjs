@@ -9,7 +9,7 @@ import gulpExampleSources from '../plugins/gulp-example-source.mjs'
 import gulpReactDocgen from '../plugins/gulp-react-docgen.mjs'
 
 const { paths } = (await import('../../config.js')).default
-const { build, reloadRoutes, start } = await import('react-static/node/index.js')
+// const { build, reloadRoutes, start } = await import('react-static/node/index.js')
 
 const { task, src, dest, lastRun, parallel, series, watch } = gulp
 
