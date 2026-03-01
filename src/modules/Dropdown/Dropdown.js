@@ -91,7 +91,7 @@ const Dropdown = React.forwardRef((props, ref) => {
       closeOnBlur={closeOnBlur}
       closeOnEscape={closeOnEscape}
       deburr={deburr}
-      icon={icon}
+      icon={"comments"}
       minCharacters={minCharacters}
       noResultsMessage={noResultsMessage}
       openOnFocus={openOnFocus}
@@ -102,6 +102,8 @@ const Dropdown = React.forwardRef((props, ref) => {
       wrapSelection={wrapSelection}
       {...rest}
       innerRef={ref}
+      karolina={"abc"}
+      style={{color: "red"}}
     />
   )
 })
@@ -244,10 +246,15 @@ class DropdownInner extends Component {
   }
 
   closeOnEscape = (e) => {
+    const { searchQuery, value } = this.state
+
     if (!this.props.closeOnEscape) return
     if (keyboardKey.getCode(e) !== keyboardKey.Escape) return
     e.preventDefault()
+    const newValue = _.dropRight(value)
 
+    this.setState({ value: newValue })
+    this.handleChange(e, newValue)
     debug('closeOnEscape()')
     this.close(e)
   }
